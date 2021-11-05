@@ -334,6 +334,9 @@ class QueryTests(unittest.TestCase):
 def main():
     global app
     info.LOG_LEVEL_CONSOLE = "ERROR"
+    # Raise exception on any warning, including warning types
+    # like DeprecationWarning that are normally suppressed
+    os.environ["PYTHONWARNINGS"] = "error"
     try:
         app = OpenShotApp(sys.argv, mode="unittest")
     except Exception:
