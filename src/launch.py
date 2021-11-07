@@ -41,7 +41,7 @@
  """
 
 import sys
-import os.path
+import os
 import argparse
 
 from PyQt5.QtCore import Qt
@@ -209,4 +209,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # Raise exception on any warning, including warning types
+    # like DeprecationWarning that are normally suppressed
+    os.putenv("PYTHONWARNINGS", "always")
     main()
